@@ -1,0 +1,11 @@
+services:
+  browser-desktop:
+    build: .
+    container_name: browser-desktop
+    ports:
+      - "6080:6080"
+    environment:
+      VNC_PASSWORD: ${VNC_PASSWORD:?Set VNC_PASSWORD in your environment}
+      DESKTOP_GEOMETRY: 1280x800
+      DESKTOP_DEPTH: 24
+    restart: unless-stopped
